@@ -23,7 +23,7 @@ namespace SGC.Models
         public string Nombre { get; set; }
 
         [Required]
-        [StringLength(2)]
+        [StringLength(3)]
         public string Clave_Depart { get; set; }
 
         public string Descripcion { get; set; }

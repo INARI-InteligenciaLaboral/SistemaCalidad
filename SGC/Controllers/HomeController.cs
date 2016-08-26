@@ -12,19 +12,20 @@ namespace SGC.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Procedimientos = Iteracciones.IteraccionBD.ObtenerProcedimientos();
+            ViewBag.DescPuestos = Iteracciones.IteraccionBD.ObtenerDescPuesto();
+            ViewBag.Boletin = Iteracciones.IteraccionBD.ObtenerBoletin();
+            ViewBag.DocExt = Iteracciones.IteraccionBD.ObtenerDocExtr();
+            ViewBag.ObjTac = Iteracciones.IteraccionBD.ObtenerObjTac();
+            ViewBag.RegyPoli = Iteracciones.IteraccionBD.ObtenerRegyPoli();
+            ViewBag.StatusHa = Iteracciones.IteraccionBD.ObtenerStatusHa();
+            ViewBag.Manuales = Iteracciones.IteraccionBD.ObtenerManuales();
+            ViewBag.Organigrama = Iteracciones.IteraccionBD.ObtenerOrganigrama();
+            ViewBag.PoliObj = Iteracciones.IteraccionBD.ObtenerPoliObj();
+            ViewBag.Proc = Iteracciones.IteraccionBD.ObtenerProc();
+            ViewBag.Inst = Iteracciones.IteraccionBD.ObtenerInst();
+            ViewBag.ForReg = Iteracciones.IteraccionBD.ObtenerForReg();
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult Subir(HttpPostedFileBase file)
-        {
-            if (file == null)
-                return View("Index");
-
-            string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
-
-            file.SaveAs(Server.MapPath("~/Archivos/" + archivo));
-            return View("Index");
         }
     }
 }

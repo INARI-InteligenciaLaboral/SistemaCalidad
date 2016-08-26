@@ -5,7 +5,7 @@ namespace SGC.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    using System.Web.Mvc;
     [Table("Archivos.T_Documentos")]
     public partial class T_Documentos
     {
@@ -37,11 +37,11 @@ namespace SGC.Models
 
         public DateTime Fecha_Alta { get; set; }
 
-        [StringLength(1)]
+        [StringLength(100)]
         public string LinkWeb { get; set; }
 
         [Required]
-        [StringLength(1)]
+        [StringLength(100)]
         public string Ruta_Archivo { get; set; }
 
         [StringLength(17)]
@@ -50,5 +50,9 @@ namespace SGC.Models
         public virtual T_Area T_Area { get; set; }
 
         public virtual T_Departamento T_Departamento { get; set; }
+
+        public virtual T_Status T_Status { get; set; }
+
+        public virtual T_Tipo_Documento T_Tipo_Documento { get; set; }
     }
 }

@@ -130,12 +130,21 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StyleIndex.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Logos\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Logos\SGC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\slideshow-image2.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\BibliotecaDigital.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -145,7 +154,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaController.cs" />
-    <Compile Include="Controllers\ComunicadosController.cs" />
+    <Compile Include="Controllers\ComunicadoController.cs" />
     <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\DocumentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -153,12 +162,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SqlModel.cs" />
+    <Compile Include="Iteracciones\IteraccionBD.cs" />
+    <Compile Include="Models\ObjDropDownList.cs" />
+    <Compile Include="Models\SQLModel.cs" />
     <Compile Include="Models\T_Area.cs" />
     <Compile Include="Models\T_Comunicados.cs" />
     <Compile Include="Models\T_Departamento.cs" />
     <Compile Include="Models\T_Documentos.cs" />
     <Compile Include="Models\T_Interfaz.cs" />
+    <Compile Include="Models\T_Movimientos.cs" />
+    <Compile Include="Models\T_Status.cs" />
+    <Compile Include="Models\T_Tipo_Documento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,21 +198,21 @@
     <Content Include="Views\Area\Details.cshtml" />
     <Content Include="Views\Area\Edit.cshtml" />
     <Content Include="Views\Area\Index.cshtml" />
-    <Content Include="Views\Documentos\Create.cshtml" />
-    <Content Include="Views\Documentos\Delete.cshtml" />
-    <Content Include="Views\Documentos\Details.cshtml" />
-    <Content Include="Views\Documentos\Edit.cshtml" />
-    <Content Include="Views\Documentos\Index.cshtml" />
-    <Content Include="Views\Comunicados\Create.cshtml" />
-    <Content Include="Views\Comunicados\Delete.cshtml" />
-    <Content Include="Views\Comunicados\Details.cshtml" />
-    <Content Include="Views\Comunicados\Edit.cshtml" />
-    <Content Include="Views\Comunicados\Index.cshtml" />
     <Content Include="Views\Interfaz\Create.cshtml" />
     <Content Include="Views\Interfaz\Delete.cshtml" />
     <Content Include="Views\Interfaz\Details.cshtml" />
     <Content Include="Views\Interfaz\Edit.cshtml" />
     <Content Include="Views\Interfaz\Index.cshtml" />
+    <Content Include="Views\Comunicado\Create.cshtml" />
+    <Content Include="Views\Comunicado\Delete.cshtml" />
+    <Content Include="Views\Comunicado\Details.cshtml" />
+    <Content Include="Views\Comunicado\Edit.cshtml" />
+    <Content Include="Views\Comunicado\Index.cshtml" />
+    <Content Include="Views\Documentos\Create.cshtml" />
+    <Content Include="Views\Documentos\Delete.cshtml" />
+    <Content Include="Views\Documentos\Details.cshtml" />
+    <Content Include="Views\Documentos\Edit.cshtml" />
+    <Content Include="Views\Documentos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,6 +228,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

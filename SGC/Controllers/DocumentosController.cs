@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -12,12 +10,12 @@ namespace SGC.Controllers
 {
     public class DocumentosController : Controller
     {
-        private SqlModel db = new SqlModel();
+        private SQLModel db = new SQLModel();
 
         // GET: Documentos
         public ActionResult Index()
         {
-            var t_Documentos = db.T_Documentos.Include(t => t.T_Area).Include(t => t.T_Departamento);
+            var t_Documentos = db.T_Documentos.Include(t => t.T_Area).Include(t => t.T_Departamento).Include(t => t.T_Status).Include(t => t.T_Tipo_Documento);
             return View(t_Documentos.ToList());
         }
 
@@ -41,6 +39,8 @@ namespace SGC.Controllers
         {
             ViewBag.ID_Area = new SelectList(db.T_Area, "ID_Area", "Nombre");
             ViewBag.ID_Depart = new SelectList(db.T_Departamento, "ID_Depart", "Nombre");
+            ViewBag.ID_Status = new SelectList(db.T_Status, "ID_Status", "Nombre");
+            ViewBag.ID_TipoDoc = new SelectList(db.T_Tipo_Documento, "ID_TipoDoc", "Nombre");
             return View();
         }
 
@@ -49,17 +49,35 @@ namespace SGC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
+        public ActionResult Create(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
         {
-            if (ModelState.IsValid)
+            if (file != null)
             {
-                db.T_Documentos.Add(t_Documentos);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string archivo = (file.FileName).ToLower();
+
+                file.SaveAs(Server.MapPath("~/Archivos/" + archivo));
+                t_Documentos.Ruta_Archivo = "~/Archivos/" + archivo;
+                t_Documentos.Fecha_Alta = DateTime.Now;
+                if (t_Documentos.Codificacion != null && t_Documentos.Nombre != null && t_Documentos.NoRevision >= 0)
+                {
+                    db.T_Documentos.Add(t_Documentos);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    if (ModelState.IsValid)
+                        ;
+                }
             }
+            else
+                return View();
+
 
             ViewBag.ID_Area = new SelectList(db.T_Area, "ID_Area", "Nombre", t_Documentos.ID_Area);
             ViewBag.ID_Depart = new SelectList(db.T_Departamento, "ID_Depart", "Nombre", t_Documentos.ID_Depart);
+            ViewBag.ID_Status = new SelectList(db.T_Status, "ID_Status", "Nombre", t_Documentos.ID_Status);
+            ViewBag.ID_TipoDoc = new SelectList(db.T_Tipo_Documento, "ID_TipoDoc", "Nombre", t_Documentos.ID_TipoDoc);
             return View(t_Documentos);
         }
 
@@ -77,6 +95,8 @@ namespace SGC.Controllers
             }
             ViewBag.ID_Area = new SelectList(db.T_Area, "ID_Area", "Nombre", t_Documentos.ID_Area);
             ViewBag.ID_Depart = new SelectList(db.T_Departamento, "ID_Depart", "Nombre", t_Documentos.ID_Depart);
+            ViewBag.ID_Status = new SelectList(db.T_Status, "ID_Status", "Nombre", t_Documentos.ID_Status);
+            ViewBag.ID_TipoDoc = new SelectList(db.T_Tipo_Documento, "ID_TipoDoc", "Nombre", t_Documentos.ID_TipoDoc);
             return View(t_Documentos);
         }
 
@@ -95,6 +115,8 @@ namespace SGC.Controllers
             }
             ViewBag.ID_Area = new SelectList(db.T_Area, "ID_Area", "Nombre", t_Documentos.ID_Area);
             ViewBag.ID_Depart = new SelectList(db.T_Departamento, "ID_Depart", "Nombre", t_Documentos.ID_Depart);
+            ViewBag.ID_Status = new SelectList(db.T_Status, "ID_Status", "Nombre", t_Documentos.ID_Status);
+            ViewBag.ID_TipoDoc = new SelectList(db.T_Tipo_Documento, "ID_TipoDoc", "Nombre", t_Documentos.ID_TipoDoc);
             return View(t_Documentos);
         }
 
@@ -131,6 +153,22 @@ namespace SGC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        [HttpPost]
+        public ActionResult Subir(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
+        {
+            if (file != null)
+            {
+                string archivo = (file.FileName).ToLower();
+
+                file.SaveAs(Server.MapPath("~/Archivos/" + archivo));
+                t_Documentos.Ruta_Archivo = "~/Archivos/" + archivo;
+                t_Documentos.Fecha_Alta = DateTime.Now;
+                Iteracciones.IteraccionBD.UpdateArchivo(t_Documentos);
+                return RedirectToAction("Index");
+            }
+            else
+                return View();
         }
     }
 }

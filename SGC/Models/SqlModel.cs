@@ -5,16 +5,19 @@ namespace SGC.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class SqlModel : DbContext
+    public partial class SQLModel : DbContext
     {
-        public SqlModel()
-            : base("name=SqlModel")
+        public SQLModel()
+            : base("name=SQLModel")
         {
         }
 
         public virtual DbSet<T_Documentos> T_Documentos { get; set; }
+        public virtual DbSet<T_Tipo_Documento> T_Tipo_Documento { get; set; }
         public virtual DbSet<T_Area> T_Area { get; set; }
         public virtual DbSet<T_Departamento> T_Departamento { get; set; }
+        public virtual DbSet<T_Movimientos> T_Movimientos { get; set; }
+        public virtual DbSet<T_Status> T_Status { get; set; }
         public virtual DbSet<T_Comunicados> T_Comunicados { get; set; }
         public virtual DbSet<T_Interfaz> T_Interfaz { get; set; }
 
@@ -29,6 +32,11 @@ namespace SGC.Models
                 .Property(e => e.CodAdicional)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<T_Tipo_Documento>()
+                .HasMany(e => e.T_Documentos)
+                .WithRequired(e => e.T_Tipo_Documento)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<T_Area>()
                 .Property(e => e.Clave_Area)
@@ -48,6 +56,21 @@ namespace SGC.Models
             modelBuilder.Entity<T_Departamento>()
                 .HasMany(e => e.T_Documentos)
                 .WithRequired(e => e.T_Departamento)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<T_Movimientos>()
+                .Property(e => e.Codificacion)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_Movimientos>()
+                .Property(e => e.CodAdicional)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_Status>()
+                .HasMany(e => e.T_Documentos)
+                .WithRequired(e => e.T_Status)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<T_Interfaz>()

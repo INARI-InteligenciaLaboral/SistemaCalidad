@@ -11,6 +11,8 @@ E:\CodeUser\BibliotecaDigital\SGC\bin\roslyn\System.Reflection.Metadata.dll
 E:\CodeUser\BibliotecaDigital\SGC\bin\roslyn\vbc.exe
 E:\CodeUser\BibliotecaDigital\SGC\bin\roslyn\VBCSCompiler.exe
 E:\CodeUser\BibliotecaDigital\SGC\bin\roslyn\VBCSCompiler.exe.config
+E:\CodeUser\BibliotecaDigital\SGC\bin\Logos\logo.png
+E:\CodeUser\BibliotecaDigital\SGC\bin\Logos\SGC.png
 E:\CodeUser\BibliotecaDigital\SGC\bin\SGC.dll.config
 E:\CodeUser\BibliotecaDigital\SGC\bin\SGC.dll
 E:\CodeUser\BibliotecaDigital\SGC\bin\SGC.pdb

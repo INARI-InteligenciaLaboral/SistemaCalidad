@@ -18,6 +18,8 @@ namespace SGC.Models
 
         public DateTime Fecha_Fin { get; set; }
 
-        public DateTime Ruta_Imagen { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Ruta_Imagen { get; set; }
     }
 }

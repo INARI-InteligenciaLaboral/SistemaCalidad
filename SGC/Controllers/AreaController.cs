@@ -12,7 +12,7 @@ namespace SGC.Controllers
 {
     public class AreaController : Controller
     {
-        private SqlModel db = new SqlModel();
+        private SQLModel db = new SQLModel();
 
         // GET: Area
         public ActionResult Index()

@@ -12,7 +12,7 @@ namespace SGC.Controllers
 {
     public class DepartamentoController : Controller
     {
-        private SqlModel db = new SqlModel();
+        private SQLModel db = new SQLModel();
 
         // GET: Departamento
         public ActionResult Index()

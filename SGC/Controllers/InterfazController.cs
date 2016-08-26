@@ -12,7 +12,7 @@ namespace SGC.Controllers
 {
     public class InterfazController : Controller
     {
-        private SqlModel db = new SqlModel();
+        private SQLModel db = new SQLModel();
 
         // GET: Interfaz
         public ActionResult Index()
