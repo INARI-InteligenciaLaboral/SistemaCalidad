@@ -75,7 +75,7 @@
                             DescPuestoArea = @Rows[2].ToString();
                             DescPuestoCodigo += "<ul class=\"nivel3\"><li class=\"nivel3\"><a class=\"nivel3\">" + @Rows[3].ToString() + "</a>";
                             DescPuestoDep = @Rows[3].ToString();
-                            DescPuestoCodigo += "<ul class=\"nivel4\"><li  class=\"nivel4\"><a class=\"nivel4\" href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li></ul>";
+                            DescPuestoCodigo += "<ul class=\"nivel4\"><li  class=\"nivel4\"><a class=\"nivel4\" href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li></";
                         }
                         else if (!DescPuestoArea.Equals(@Rows[2].ToString()) && !DescPuestoDep.Equals(@Rows[3].ToString()))
                         {
@@ -311,7 +311,7 @@
                             ManualesCodigo += "<li class=\"nivel4\"><a class=\"nivel4\" href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
                         }
                     }
-                    @if (!RegyPoliCodigo.Equals(""))
+                    @if (!ManualesCodigo.Equals(""))
                     {
                         ManualesCodigo += "</ul></li></ul></li></ul>";
                     }
@@ -379,15 +379,12 @@
         </header>
         <section class="cuerpo">
             <div class="piramide">
-                <div class="manual">
-                    <ul class="tittle">
-                        <li>
-                            <a href="">Manual de Calidad</a>
-                        </li>
-                    </ul>
-                </div>
-                <div id="menuhor" class="politicas">
+                <img src="~/Content/images/piramide.png" />
+                <div id="menuhor">
                     <ul>
+                        <li class="niv1">
+                            <a class="niv1" href="">Manual <br />de Calidad</a>
+                        </li>
                         <li class="niv1">
                             <a class="niv1  tittle">Políticas y Objetivos <br /> de Calidad</a>
                             @{string PoliObjArea = ""; string PoliObjDep = ""; }
@@ -439,10 +436,6 @@
                             @{var PoliObjmyHtmlString = new HtmlString(@PoliObjCodigo);}
                             @PoliObjmyHtmlString
                         </li>
-                    </ul>
-                </div>
-                <div id="menuhor"  class="procedimientos">
-                    <ul>
                         <li class="niv1">
                             <a class="niv1  tittle">Procedimientos</a>
                             @{string ProcArea = ""; string ProcDep = ""; }
@@ -494,10 +487,6 @@
                             @{var ProcmyHtmlString = new HtmlString(@ProcCodigo);}
                             @ProcmyHtmlString
                         </li>
-                    </ul>
-                </div>
-                <div id="menuhor"  class="instructivo">
-                    <ul>
                         <li class="niv1">
                             <a class="niv1  tittle">Instructivo</a>
                             @{string InstArea = ""; string InstDep = ""; }
@@ -539,7 +528,7 @@
                                 }
                                 else
                                 {
-                                    InstCodigo += "<li><a href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li></ul>";
+                                    InstCodigo += "<li><a href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
                                 }
                             }
                             @if (!InstCodigo.Equals(""))
@@ -549,10 +538,6 @@
                             @{var InstmyHtmlString = new HtmlString(@InstCodigo);}
                             @InstmyHtmlString
                         </li>
-                    </ul>
-                </div>
-                <div id="menuhor"  class="ForyReg">
-                    <ul>
                         <li class="niv1">
                             <a class="niv1  tittle">Formatos y Registros</a>
                             @{string ForRegArea = ""; string ForRegDep = ""; }
