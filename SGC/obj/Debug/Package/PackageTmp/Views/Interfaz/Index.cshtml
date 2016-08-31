@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SGC.Models.T_Interfaz>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RutaBackground)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogoInari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogoCalidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Navegacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NavHover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NavFont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NavFontHover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Piramide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PirFont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PirHover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PirFontHover)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RutaBackground)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogoInari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogoCalidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navegacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NavHover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NavFont)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NavFontHover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piramide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PirFont)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PirHover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PirFontHover)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Interfaz }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Interfaz }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Interfaz })
+        </td>
+    </tr>
+}
+
+</table>

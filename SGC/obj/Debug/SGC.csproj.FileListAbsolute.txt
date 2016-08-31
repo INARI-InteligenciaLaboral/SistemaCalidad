@@ -99,6 +99,6 @@ E:\CodeUser\BibliotecaDigital\SGC\bin\System.Web.Webpages.Deployment.xml
 E:\CodeUser\BibliotecaDigital\SGC\bin\System.Web.Webpages.Razor.xml
 E:\CodeUser\BibliotecaDigital\SGC\bin\System.Web.Helpers.xml
 E:\CodeUser\BibliotecaDigital\SGC\bin\System.Web.Mvc.xml
-E:\CodeUser\BibliotecaDigital\SGC\obj\Debug\SGC.csprojResolveAssemblyReference.cache
 E:\CodeUser\BibliotecaDigital\SGC\obj\Debug\SGC.dll
 E:\CodeUser\BibliotecaDigital\SGC\obj\Debug\SGC.pdb
+E:\CodeUser\BibliotecaDigital\SGC\obj\Debug\SGC.csprojResolveAssemblyReference.cache

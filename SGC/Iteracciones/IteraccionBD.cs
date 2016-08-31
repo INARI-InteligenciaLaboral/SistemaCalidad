@@ -13,7 +13,7 @@ namespace SGC.Iteracciones
     {
         public static bool InsertComunicado(T_Comunicados t_comunicado)
         {
-            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;"))
+            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;"))
             {
                 mySqlConnection.Open();
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -35,7 +35,7 @@ namespace SGC.Iteracciones
         }
         public static bool UpdateArchivo(T_Documentos t_documentos)
         {
-            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;"))
+            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;"))
             {
                 mySqlConnection.Open();
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -53,7 +53,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerProcedimientos()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -75,14 +75,14 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerDescPuesto()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "Select Doc.Nombre as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    string m_command = "Select Doc.Ruta_Archivo as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
                     m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
                     m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
                     m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 7 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
@@ -97,7 +97,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerRegyPoli()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -119,7 +119,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerBoletin()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -141,7 +141,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerObjTac()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -163,7 +163,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerStatusHa()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -185,14 +185,14 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerDocExtr()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "Select Doc.Nombre as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    string m_command = "Select Doc.Nombre as Archivo,Doc.LinkWeb as Ruta,Doc.Ruta_Archivo as Rutas";
                     m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
                     m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
                     m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 12 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
@@ -207,7 +207,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerManuales()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -229,7 +229,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerOrganigrama()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -251,7 +251,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerPoliObj()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -273,14 +273,14 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerProc()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "Select Doc.Nombre as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    string m_command = "Select Doc.Ruta_Archivo as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
                     m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
                     m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
                     m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 3 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
@@ -295,14 +295,14 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerInst()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "Select Doc.Nombre as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    string m_command = "Select Doc.Ruta_Archivo as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
                     m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
                     m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
                     m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 4 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
@@ -317,17 +317,39 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerForReg()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=TI-PROGANA01\\INARIPROG;password=Inari2016;";
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
             DataTable m_Procesos = new DataTable();
             try
             {
                 using (SqlConnection m_conexion = new SqlConnection(m_cadena))
                 {
                     m_conexion.Open();
-                    string m_command = "Select Doc.Nombre as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    string m_command = "Select Doc.Ruta_Archivo as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
                     m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
                     m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
                     m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 5 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
+                    SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
+                    m_Procesos.Load(m_adapter.ExecuteReader());
+                    m_conexion.Close();
+                }
+            }
+            catch
+            { }
+            return m_Procesos;
+        }
+        public static DataTable ObtenerManual()
+        {
+            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            DataTable m_Procesos = new DataTable();
+            try
+            {
+                using (SqlConnection m_conexion = new SqlConnection(m_cadena))
+                {
+                    m_conexion.Open();
+                    string m_command = "Select Doc.Ruta_Archivo as Archivo,Doc.Ruta_Archivo as Ruta,Area.Nombre as Area,Dep.Nombre as Depart, TPD.Nombre AS TipoDoc";
+                    m_command += " from Archivos.T_Documentos AS Doc INNER JOIN Asistencia.T_Area AS Area ON Doc.ID_Area = Area.ID_Area";
+                    m_command += " INNER JOIN Asistencia.T_Departamento AS Dep ON Doc.ID_Depart = Dep.ID_Depart INNER JOIN Archivos.T_Tipo_Documento AS";
+                    m_command += " TPD ON Doc.ID_TipoDoc = TPD.ID_TipoDoc WHERE ID_Status = 1 AND TPD.ID_TipoDoc = 1 Order by Area.Nombre,Dep.Nombre,Doc.Nombre";
                     SqlCommand m_adapter = new SqlCommand(m_command, m_conexion);
                     m_Procesos.Load(m_adapter.ExecuteReader());
                     m_conexion.Close();

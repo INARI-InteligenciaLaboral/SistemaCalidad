@@ -25,6 +25,7 @@ namespace SGC.Controllers
             ViewBag.Proc = Iteracciones.IteraccionBD.ObtenerProc();
             ViewBag.Inst = Iteracciones.IteraccionBD.ObtenerInst();
             ViewBag.ForReg = Iteracciones.IteraccionBD.ObtenerForReg();
+            ViewBag.Manual = Iteracciones.IteraccionBD.ObtenerManual();
             return View();
         }
     }

@@ -3,10 +3,11 @@
     margin: 0;
     background-image: url(images/slideshow-image2.jpg);
     background-repeat: no-repeat;
-    background-size: auto;
-    display: flex;
-    flex-direction: column;
+    background-size:cover;
     font-family: 'Poppins', sans-serif;
+}
+.body{
+    display: flex;
 }
 @media screen and (min-width: 800px)
 {
@@ -22,8 +23,16 @@
         padding: 40px 0;
         z-index: 2;
     }
-    #menuhor {  font-size: 1vw;margin: 1.2vw;}
-    #menuhor ul { list-style-type: none; padding-top: 1.2vw;}
+    #menuhor {  
+        font-size: 1vw;
+        margin: 1.2vw;
+        z-index: 1;
+        padding-top: 5vw;
+    }
+    #menuhor ul.niv1 { 
+        list-style-type: none; 
+        padding-top: 1.2vw;
+    }
     img.sgc{
         position: absolute;
          width: 120px;
@@ -41,7 +50,7 @@
         width: inherit;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: inherit;
         padding: 40px 0 0 0;
     }
     .cuerpo img{
@@ -111,8 +120,16 @@
         padding: 0;
         z-index: 2;
     }
-    #menuhor {  font-size: 2vw;margin: 10vw;}
-    #menuhor ul { list-style-type: none;}
+    #menuhor {  
+        font-size: 2vw;
+        margin: 10vw;
+        text-align: center;
+        z-index: 1;
+        padding-top: 5vw;
+    }
+    #menuhor ul { 
+        list-style-type: none;
+    }
     img.sgc{
         position: absolute;
          width: 60px;
@@ -134,15 +151,17 @@
         padding: 40px 0 0 0;
     }
     .cuerpo img{
+        height: inherit;
         margin-left: 20px;
         width: 86vw;
         height: 48vw;
     }
     .externos{
+        width: 600px;
         z-index: 0;
         text-decoration: none;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         color: white;
         font-size: 20px;
@@ -155,14 +174,15 @@
         margin: 0;
     }
     .piramide {
-    width: 87.84vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+        width: 87.84vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     .piramide img{
         width: 87.84vw;
+        height: 40vw;
         position: absolute;
         margin: 0;
     }
@@ -182,9 +202,11 @@
 }
 #menu ul li a {
     display: flex;
+    text-align: center;
+    justify-content: center;
     text-decoration: none;
     color: #fff;
-    background-color: #E91D75; 
+    background-color: #2A2A2A; 
     padding: 0 10px;
     position: relative;
 }
@@ -192,7 +214,7 @@
     height:40px;
 }
 #menu ul li a.nivel2, #menu ul li a.nivel2 {
-    color: #000;
+    color: white;
 }
 #menu ul li a.nivel1, #menu ul li a.nivel2{
     display: block!important;
@@ -245,7 +267,12 @@
 #menu ul.nivel4{
     overflow: scroll;
     overflow-x: hidden;
-    max-height: 800px;
+    max-height: 300px;
+    min-width: 200px;
+}
+#menu ul.nivel4 a{
+    min-width: 220px;
+    font-size: 10px;
 }
 #menu ul li a.nivel1{ 
     background-color: transparent;
@@ -253,8 +280,9 @@
     align-items: center;
     display: flex;
 }
-#menuhor{
-    z-index: 1;
+#menu ul.nivel2.individual a{
+    min-width: 250px;
+    font-size: 10px;
 }
 #menuhor ul li.niv1 { 
     width: 200px;
@@ -269,6 +297,7 @@
 #menuhor ul li a {
     display: block;
     text-decoration: none;
+    text-align: center;
     color: #fff;
     background-color: transparent;
     border-top: none;
@@ -296,12 +325,18 @@
 #menuhor ul li:hover > ul {
     display: block;
     position: absolute;
+    left: 135px;
+    top:-0.90vw;
+}
+#menuhor ul li:hover > ul.niv2 {
+    display: block;
+    position: absolute;
     left: 198px;
     top:-0.90vw;
 }
 #menuhor ul li ul li a {
-    width: 182px;
-    background-color: #E91D75;
+    width: 120px;
+    background-color: #2A2A2A;
     color: #FFF;
     position: relative;
 }
@@ -326,9 +361,13 @@
 #menuhor ul.niv4{
     overflow: scroll;
     overflow-x: hidden;
-    max-height: 800px;
+    max-height: 150px;
 }
-ul, ol{
+#menuhor ul.niv4 a{
+    min-width: 250px;
+    font-size: 10px;
+}
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -336,4 +375,97 @@ ul, ol{
 footer{
     height: 50px;
     color:white;
+}
+
+#menuhor ul.niv2.DocExt a{
+    font-size: 10px;
+    width: 250px;
+}
+#menuhor ul.niv2.DocExt{
+    overflow: scroll; 
+    max-height: 200px; 
+    overflow-x:hidden; 
+    top: -165px!important;
+}
+#menuhor ul.niv2.ForReg a{
+    font-size: 12px;
+}
+#menuhor ul.niv2.ForReg{
+    top: -130px!important;
+}
+#menuhor ul.niv2.Inst a{
+    font-size: 12px;
+}
+#menuhor ul.niv2.Inst{
+    top: -130px!important;
+}
+#menuhor ul.niv2.Proc a{
+    font-size: 12px;
+}
+#menuhor ul.niv2.Proc{
+    top: -130px!important;
+}
+ #menuhor ul li:hover a.niv1.DocExt{
+     color: #7F7F7F;
+ }
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  color: gray;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  font-size: 1vw;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #E91D75;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: gray;
+}
+.popup .close:hover {
+  color: #E91D75;
+}
+.popup .content {
+  max-height: 50%;
+  overflow: auto;
+  text-align: justify;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
 }

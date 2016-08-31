@@ -1,0 +1,127 @@
+﻿@model SGC.Models.T_Documentos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Documento</h2>
+
+<h3>¿Desea eliminar este documento?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.T_Area.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Area.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_Departamento.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Departamento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_Status.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Status.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_Tipo_Documento.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Tipo_Documento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodAdicional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodAdicional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoRevision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRevision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Alta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Alta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkWeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ruta_Archivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ruta_Archivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodificacionCalc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodificacionCalc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,48 @@
+﻿@model SGC.Models.T_Area
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Área</h2>
+
+<h3>¿Desea eliminar esta área</h3>
+<div>
+    <h4>T_Area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clave_Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clave_Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

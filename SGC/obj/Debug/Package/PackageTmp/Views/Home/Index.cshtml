@@ -1,0 +1,446 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<html>
+    <head>
+        <title>Biblioteca Digital</title>
+        <link href="~/Content/StyleIndex.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+    </head>
+    <body>
+        <div id="menu">
+            <ul>
+                <li class="nivel1">
+                    @{string OrganigramaCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.Organigrama.Rows)
+                    {
+                        OrganigramaCodigo +=  @Rows[1].ToString();
+                    }
+                    
+                    @{var OrganigramamyHtmlString = new HtmlString(@OrganigramaCodigo);}
+                    @if (!OrganigramaCodigo.Equals(""))
+                    {
+                        <a class="nivel1" target="_blank" href="bdigital/Archivos/@OrganigramamyHtmlString">Organigrama</a>
+                    }
+                    else
+                    {
+                        <a class="nivel1" href="">Organigrama</a>
+                    }
+                </li>
+                <li class="nivel1">
+                    <a class="nivel1">Descripción <br />de puestos</a>
+                    @{string DescPuestoArea = ""; string DescPuestoDep = ""; }
+                    @{string DescPuestoCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.DescPuestos.Rows)
+                    {
+                        if (DescPuestoArea.Equals(""))
+                        {
+                            DescPuestoCodigo += "<ul class=\"nivel2\"><li class=\"nivel2\"><a class=\"nivel2\">" + @Rows[2].ToString() + "</a>";
+                            DescPuestoArea = @Rows[2].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel3\"><li class=\"nivel3\"><a class=\"nivel3\">" + @Rows[3].ToString() + "</a>";
+                            DescPuestoDep = @Rows[3].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel4\"><li  class=\"nivel4\"><a target=\"_blank\" class=\"nivel4\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                        }
+                        else if (!DescPuestoArea.Equals(@Rows[2].ToString()) && !DescPuestoDep.Equals(@Rows[3].ToString()))
+                        {
+                            DescPuestoCodigo += "</ul></li></ul>";
+                            DescPuestoCodigo += "<li class=\"nivel2\"><a class=\"nivel2\">" + @Rows[2].ToString() + "</a>";
+                            DescPuestoArea = @Rows[2].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel3\"><li class=\"nivel3\"><a class=\"nivel3\">" + @Rows[3].ToString() + "</a>";
+                            DescPuestoDep = @Rows[3].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel4\"><li class=\"nivel4\"><a target=\"_blank\" class=\"nivel4\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                        }
+                        else if (!DescPuestoArea.Equals(@Rows[2].ToString()))
+                        {
+                            DescPuestoCodigo += "</ul></li></ul>";
+                            DescPuestoCodigo += "<li class=\"nivel2\"><a class=\"nivel2\">" + @Rows[2].ToString() + "</a>";
+                            DescPuestoArea = @Rows[2].ToString();
+                            DescPuestoCodigo += "<li class=\"nivel3\"><a class=\"nivel3\">" + @Rows[3].ToString() + "</a>";
+                            DescPuestoDep = @Rows[3].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel4\"><li class=\"nivel4\"><a  target=\"_blank\" class=\"nivel4\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                        }
+                        else if (!DescPuestoDep.Equals(@Rows[3].ToString()))
+                        {
+                            DescPuestoCodigo += "</ul></li>";
+                            DescPuestoCodigo += "<li class=\"nivel3\"><a class=\"nivel3\">" + @Rows[3].ToString() + "</a>";
+                            DescPuestoDep = @Rows[3].ToString();
+                            DescPuestoCodigo += "<ul class=\"nivel4\"><li class=\"nivel4\"><a target=\"_blank\" class=\"nivel4\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                        }
+                        else
+                        {
+                            DescPuestoCodigo += "<li class=\"nivel4\"><a class=\"nivel4\"  target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                        }
+                    }
+                    @if (!DescPuestoCodigo.Equals(""))
+                    {
+                        DescPuestoCodigo += "</ul></li></ul></li></ul>";
+                    }
+                    @{var DescPuestomyHtmlString = new HtmlString(@DescPuestoCodigo);}
+                    @DescPuestomyHtmlString
+                </li>
+                <li class="nivel1">
+                    <a class="nivel1">Reglamentos <br />y Políticas</a>
+                    @{string RegyPoliCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.RegyPoli.Rows)
+                    {
+                        if (RegyPoliCodigo.Equals(""))
+                        {
+                            RegyPoliCodigo += "<ul class=\"nivel2 individual\"><li class=\"nivel2\">";
+                        }
+                        RegyPoliCodigo += "<li class=\"nivel2\"><a class=\"nivel2\" target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                    }
+                    @if (!RegyPoliCodigo.Equals(""))
+                    {
+                        RegyPoliCodigo += "</ul>";
+                    }
+                    @{var RegyPolimyHtmlString = new HtmlString(@RegyPoliCodigo);}
+                    @RegyPolimyHtmlString
+                </li>
+                <li class="nivel1">
+                    <a class="nivel1">Boletín</a>
+                    @{string BoletinCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.Boletin.Rows)
+                    {
+                        if (BoletinCodigo.Equals(""))
+                        {
+                            BoletinCodigo += "<ul class=\"nivel2 individual\">";
+                        }
+                        BoletinCodigo += "<li class=\"nivel2\"><a class=\"nivel2\" target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                    }
+                    @if (!BoletinCodigo.Equals(""))
+                    {
+                        BoletinCodigo += "</ul>";
+                    }
+                    @{var BoletinmyHtmlString = new HtmlString(@BoletinCodigo);}
+                    @BoletinmyHtmlString
+                </li>
+                <li class="nivel1">
+                    <a class="nivel1">Objetivos <br />tácticos</a>
+                    @{string ObjTacCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.ObjTac.Rows)
+                    {
+                        if (ObjTacCodigo.Equals(""))
+                        {
+                            ObjTacCodigo += "<ul class=\"nivel2 individual\"><li class=\"nivel2\">";
+                        }
+                        ObjTacCodigo += "<li class=\"nivel2\"><a class=\"nivel2\" target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                    }
+                    @if (!ObjTacCodigo.Equals(""))
+                    {
+                        ObjTacCodigo += "</ul>";
+                    }
+                    @{var ObjTacmyHtmlString = new HtmlString(@ObjTacCodigo);}
+                    @ObjTacmyHtmlString
+                </li>
+                <li class="nivel1">
+                    <a class="nivel1">Manuales</a>
+                    @{string ManualesCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.Manuales.Rows)
+                    {
+                        if (ManualesCodigo.Equals(""))
+                        {
+                            ManualesCodigo += "<ul class=\"nivel2\"><li class=\"nivel2\">";
+                        }
+                        ManualesCodigo += "<li class=\"nivel2\"><a class=\"nivel2\" target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                    }
+                    @if (!ManualesCodigo.Equals(""))
+                    {
+                        ManualesCodigo += "</ul>";
+                    }
+                    @{var ManualesmyHtmlString = new HtmlString(@ManualesCodigo);}
+                    @ManualesmyHtmlString
+                </li>
+
+                <li class="nivel1">
+                    <a class="nivel1">Status de <br />hallazgos</a>
+                    @{string StatusHaCodigo = "";}
+                    @foreach (System.Data.DataRow Rows in ViewBag.StatusHa.Rows)
+                    {
+                        if (StatusHaCodigo.Equals(""))
+                        {
+                            StatusHaCodigo += "<ul class=\"nivel2\"><li class=\"nivel2\">";
+                        }
+                        StatusHaCodigo += "<li class=\"nivel2\"><a class=\"nivel2\" target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                    }
+                    @if (!StatusHaCodigo.Equals(""))
+                    {
+                        StatusHaCodigo += "</ul>";
+                    }
+                    @{var StatusHamyHtmlString = new HtmlString(@StatusHaCodigo);}
+                    @StatusHamyHtmlString
+                </li>
+            </ul>
+
+        </div>
+        <header>
+            <img class="sgc" src="~/Logos/SGC.png"/>
+            <img class="inari" src="~/Logos/logo.png"/>
+        </header>
+        <section class="cuerpo">
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Política de la Calidad</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        Es política de INARI brindar soluciones laborales, 
+                        que generen satisfaccion y valor agregado, buscando la mejora continua a través del cumplimiento de las 
+                        necesidades del cliente siempre dentro del marco legal y apegado al sistema de gestión de calidad;
+                    </div>
+                </div>
+            </div>
+            <div id="popup2" class="overlay">
+                <div class="popup">
+                    <h2>Objetivos de la Calidad</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        *Lograr que la satisfacción de nuestros clientes se mantenga en un nivel igual o mayor a un 80%.
+                        <br />
+                        *Incrementar las competencias de nuestro personal a través de la capacitación constante.
+                        <br />
+                        *Generar rentabilidad para todos los niveles de la organización, mediante la optimización de recursos.
+                    </div>
+                </div>
+            </div>
+            <div id="popup3" class="overlay">
+                <div class="popup">
+                    <h2>Misión</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        Somos un aliado estratégico de nuestros clientes, ofrecemos soluciones laborales a través 
+                        de la gestión del capital humano, nóminas y servicios legales, que generan seguridad y valor agregado. Brindamos un trato profesional siempre apegado al marco legal.
+                    </div>
+                    <h2>Visión</h2>
+                    <div class="content">
+                        Ser tu mejor opción empresarial en materia laboral, jurídica y administrativa.
+                    </div>
+                </div>
+            </div>
+            <div id="popup4" class="overlay">
+                <div class="popup">
+                    <h2>Valores</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <strong>Profesionalismo:</strong> Trabajamos con responsabilidad, calidad, compromiso y dedicación.<br />
+                        <strong>Actitud y servicio:</strong> Contamos con la cacpacidad de respuesta, escuchamos y atendemos con amabilidad las necesidades y expectativas de nuestros clientesde manera oportuna.<br />
+                        <strong>Transparencia:</strong> Actuamos con total honestidad, estableciendo lazos de confianza con nuestros clientes dentro del marco legal.<br />
+                        <strong>Seguridad:</strong> Respaldamos tu empresa mediante una experta asesoría.<br />
+                        <strong>Responsabilidad:</strong> Contamos con habilidad para responder a tus necesidades.<br />
+                        <strong>Compromiso:</strong> Estamos siempre presentes para prevenir y solucionar tus problemas.<br />
+                    </div>
+                </div>
+            </div>
+            <div class="piramide">
+                <img src="~/Content/images/piramide.png" />
+                <div id="menuhor">
+                    <ul>
+                        <li class="niv1">
+                            @{string ManualCodigo = "";}
+                            @foreach (System.Data.DataRow Rows in ViewBag.Manual.Rows)
+                            {
+                                ManualCodigo += @Rows[1].ToString();
+                            }
+
+                            @{var ManualmyHtmlString = new HtmlString(@ManualCodigo);}
+                            @if (!ManualCodigo.Equals(""))
+                            {
+                                <a class="niv1" target="_blank" href="bdigital/Archivos/@ManualmyHtmlString">Manual <br />de Calidad</a>
+                            }
+                            else
+                            {
+                                <a class="niv1" href="">Manual <br />de Calidad</a>
+                            }
+                        </li>
+                        <li class="niv1">
+                            <a class="niv1  tittle">Políticas y Objetivos <br /> de Calidad</a>
+                            <ul class="niv2">
+                                <li class="niv2"><a href="#popup1">Política de Calidad</a></li>
+                                <li class="niv2"><a href="#popup2">Objetivos de Calidad</a></li>
+                                <li class="niv2"><a href="#popup3">Misión y Visión</a></li>
+                                <li class="niv2"><a href="#popup4">Valores</a></li>
+                            </ul>
+                        </li>
+                        <li class="niv1">
+                            <a class="niv1  tittle">Procedimientos</a>
+                            @{string ProcArea = ""; string ProcDep = ""; }
+                            @{string ProcCodigo = "";}
+                            @foreach (System.Data.DataRow Rows in ViewBag.Proc.Rows)
+                            {
+                                if (ProcArea.Equals(""))
+                                {
+                                    ProcCodigo += "<ul class=\"niv2 Proc\"><li><a>" + @Rows[2].ToString() + "</a>";
+                                    ProcArea = @Rows[2].ToString();
+                                    ProcCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ProcDep = @Rows[3].ToString();
+                                    ProcCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href =\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ProcArea.Equals(@Rows[2].ToString()) && !ProcDep.Equals(@Rows[3].ToString()))
+                                {
+                                    ProcCodigo += "</ul></li></ul>";
+                                    ProcCodigo += "<li><a>" + @Rows[2].ToString() + "</a>";
+                                    ProcArea = @Rows[2].ToString();
+                                    ProcCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ProcDep = @Rows[3].ToString();
+                                    ProcCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ProcArea.Equals(@Rows[2].ToString()))
+                                {
+                                    ProcCodigo += "</ul></li></ul>";
+                                    ProcCodigo += "<li class=\"niv2\"><a>" + @Rows[2].ToString() + "</a>";
+                                    ProcArea = @Rows[2].ToString();
+                                    ProcCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ProcDep = @Rows[3].ToString();
+                                    ProcCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ProcDep.Equals(@Rows[3].ToString()))
+                                {
+                                    ProcCodigo += "</ul></li>";
+                                    ProcCodigo += "<li><a>" + @Rows[3].ToString() + "</a>";
+                                    ProcDep = @Rows[3].ToString();
+                                    ProcCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else
+                                {
+                                    ProcCodigo += "<li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                            }
+                            @if (!ProcCodigo.Equals(""))
+                            {
+                                ProcCodigo += "</ul></li></ul></li></ul>";
+                            }
+                            @{var ProcmyHtmlString = new HtmlString(@ProcCodigo);}
+                            @ProcmyHtmlString
+                        </li>
+                        <li class="niv1">
+                            <a class="niv1  tittle">Instructivo</a>
+                            @{string InstArea = ""; string InstDep = ""; }
+                            @{string InstCodigo = "";}
+                            @foreach (System.Data.DataRow Rows in ViewBag.Inst.Rows)
+                            {
+                                if (InstArea.Equals(""))
+                                {
+                                    InstCodigo += "<ul class=\"niv2 Inst\"><li><a>" + @Rows[2].ToString() + "</a>";
+                                    InstArea = @Rows[2].ToString();
+                                    InstCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    InstDep = @Rows[3].ToString();
+                                    InstCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!InstArea.Equals(@Rows[2].ToString()) && !InstDep.Equals(@Rows[3].ToString()))
+                                {
+                                    InstCodigo += "</ul></li></ul>";
+                                    InstCodigo += "<li><a>" + @Rows[2].ToString() + "</a>";
+                                    InstArea = @Rows[2].ToString();
+                                    InstCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    InstDep = @Rows[3].ToString();
+                                    InstCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!InstArea.Equals(@Rows[2].ToString()))
+                                {
+                                    InstCodigo += "</ul></li></ul>";
+                                    InstCodigo += "<li class=\"niv2\"><a>" + @Rows[2].ToString() + "</a>";
+                                    InstArea = @Rows[2].ToString();
+                                    InstCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    InstDep = @Rows[3].ToString();
+                                    InstCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!InstDep.Equals(@Rows[3].ToString()))
+                                {
+                                    InstCodigo += "</ul></li>";
+                                    InstCodigo += "<li><a>" + @Rows[3].ToString() + "</a>";
+                                    InstDep = @Rows[3].ToString();
+                                    InstCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else
+                                {
+                                    InstCodigo += "<li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                            }
+                            @if (!InstCodigo.Equals(""))
+                            {
+                                InstCodigo += "</ul></li></ul></li></ul>";
+                            }
+                            @{var InstmyHtmlString = new HtmlString(@InstCodigo);}
+                            @InstmyHtmlString
+                        </li>
+                        <li class="niv1">
+                            <a class="niv1  tittle">Formatos y Registros</a>
+                            @{string ForRegArea = ""; string ForRegDep = ""; }
+                            @{string ForRegCodigo = "";}
+                            @foreach (System.Data.DataRow Rows in ViewBag.ForReg.Rows)
+                            {
+                                if (ForRegArea.Equals(""))
+                                {
+                                    ForRegCodigo += "<ul class=\"niv2 ForReg\"><li><a>" + @Rows[2].ToString() + "</a>";
+                                    ForRegArea = @Rows[2].ToString();
+                                    ForRegCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ForRegDep = @Rows[3].ToString();
+                                    ForRegCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ForRegArea.Equals(@Rows[2].ToString()) && !ForRegDep.Equals(@Rows[3].ToString()))
+                                {
+                                    ForRegCodigo += "</ul></li></ul>";
+                                    ForRegCodigo += "<li><a>" + @Rows[2].ToString() + "</a>";
+                                    ForRegArea = @Rows[2].ToString();
+                                    ForRegCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ForRegDep = @Rows[3].ToString();
+                                    ForRegCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ForRegArea.Equals(@Rows[2].ToString()))
+                                {
+                                    ForRegCodigo += "</ul></li></ul>";
+                                    ForRegCodigo += "<li class=\"niv2\"><a>" + @Rows[2].ToString() + "</a>";
+                                    ForRegArea = @Rows[2].ToString();
+                                    ForRegCodigo += "<ul class=\"niv3\"><li><a>" + @Rows[3].ToString() + "</a>";
+                                    ForRegDep = @Rows[3].ToString();
+                                    ForRegCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else if (!ForRegDep.Equals(@Rows[3].ToString()))
+                                {
+                                    ForRegCodigo += "</ul></li>";
+                                    ForRegCodigo += "<li><a>" + @Rows[3].ToString() + "</a>";
+                                    ForRegDep = @Rows[3].ToString();
+                                    ForRegCodigo += "<ul class=\"niv4\"><li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                                else
+                                {
+                                    ForRegCodigo += "<li><a target=\"_blank\" href=\"bdigital/Archivos/" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                                }
+                            }
+                            @if (!StatusHaCodigo.Equals(""))
+                            {
+                                ForRegCodigo += "</ul></li></ul></li></ul>";
+                            }
+                            @{var ForRegmyHtmlString = new HtmlString(@ForRegCodigo);}
+                            @ForRegmyHtmlString
+                        </li>
+                        <li class="niv1">
+                            <a class="niv1" href="">Documentos Externos</a>
+                            @{string DocExtCodigo = "";}
+                            @foreach (System.Data.DataRow Rows in ViewBag.DocExt.Rows)
+                            {
+                                if (DocExtCodigo.Equals(""))
+                                {
+                                    DocExtCodigo += "<ul class=\"niv2 DocExt\">";
+                                }
+                                DocExtCodigo += "<li class=\"niv2\"><a target=\"_blank\" href=\"" + @Rows[1].ToString() + "\">" + @Rows[0].ToString() + "</a></li>";
+                            }
+                            @if (!DocExtCodigo.Equals(""))
+                            {
+                                DocExtCodigo += "</ul>";
+                            }
+                            @{var DocExtmyHtmlString = new HtmlString(@DocExtCodigo);}
+                            @DocExtmyHtmlString
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slider">
+                <img src="~/Imagenes/que es la norma.png"/>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - INARI Inteligencia Laboral</p>
+        </footer>
+    </body>
+</html>
