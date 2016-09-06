@@ -91,10 +91,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/29/2016 09:41:08</publishTime>
     </File>
     <File Include="bin/SGC.dll">
-      <publishTime>08/31/2016 10:04:55</publishTime>
+      <publishTime>08/31/2016 16:25:14</publishTime>
     </File>
     <File Include="bin/SGC.pdb">
-      <publishTime>08/31/2016 10:04:55</publishTime>
+      <publishTime>08/31/2016 16:25:14</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>08/29/2016 09:41:06</publishTime>
@@ -130,7 +130,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/29/2016 09:40:48</publishTime>
     </File>
     <File Include="Content/StyleIndex.css">
-      <publishTime>08/31/2016 09:37:15</publishTime>
+      <publishTime>08/31/2016 13:28:35</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>08/29/2016 09:40:55</publishTime>
@@ -241,7 +241,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/29/2016 09:40:49</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/31/2016 09:05:11</publishTime>
+      <publishTime>08/31/2016 13:59:16</publishTime>
     </File>
     <File Include="Views/Interfaz/Create.cshtml">
       <publishTime>08/29/2016 09:40:49</publishTime>
