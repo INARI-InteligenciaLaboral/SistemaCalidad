@@ -21,7 +21,10 @@ namespace SGC.Models
         public string Codificacion { get; set; }
 
         [StringLength(2)]
-        public string CodAdicional { get; set; }
+        public string PriCodAdi { get; set; }
+
+        [StringLength(2)]
+        public string SegCodAdi { get; set; }
 
         public int NoRevision { get; set; }
 

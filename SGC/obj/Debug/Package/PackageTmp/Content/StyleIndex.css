@@ -9,6 +9,7 @@
 .body{
     display: flex;
 }
+
 @media screen and (min-width: 800px)
 {
     #menu {
@@ -18,20 +19,19 @@
         font-size: 12px;
         width: auto;
         margin: 0 auto;
-        height: 50px;
+        height: 6vw;
         top: 0px;
         padding: 40px 0;
         z-index: 2;
     }
-    #menuhor {  
-        font-size: 1vw;
-        margin: 1.2vw;
+    #menuhor {
+        font-size: .8vw;
+        margin: .5vw;
         z-index: 1;
-        padding-top: 5vw;
     }
     #menuhor ul.niv1 { 
         list-style-type: none; 
-        padding-top: 1.2vw;
+
     }
     img.sgc{
         position: absolute;
@@ -50,7 +50,7 @@
         width: inherit;
         display: flex;
         align-items: center;
-        justify-content: inherit;
+        justify-content: space-around;
         padding: 40px 0 0 0;
     }
     .cuerpo img{
@@ -80,11 +80,17 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        background-size: 43.92vw;
     }
-    .piramide img{
-        width: 43.92vw;
-        position: absolute;
-        margin: 0;
+    #menuhor ul li.niv1 { 
+        width: 14.7vw;
+        padding: 0.9vw;
+    }
+    #menuhor img{
+      position: absolute;
+      width: 37.5vw;
+      height: 16vw;
+      left: 5vw;
     }
 }
 @media screen and (max-width: 800px)
@@ -102,13 +108,7 @@
         justify-content: center;
         text-align: center;
     }
-    .piramide img{
-        width: 43.92vw;
-        position: absolute;
-        margin: 0;
-        padding-bottom: 20px;
-    }
-    #menu {
+    #menu { 
         display: flex;
         text-align: center;
         align-items: center;
@@ -185,6 +185,16 @@
         height: 40vw;
         position: absolute;
         margin: 0;
+    }
+    #menuhor ul li.niv1 { 
+        width: 30.97vw;
+        padding: 0.51vw;
+    }
+    #menuhor img{
+      position: absolute;
+      width: 75vw;
+      height: 28vw;
+      left: 6.5vw;
     }
 }
 
@@ -284,10 +294,7 @@
     min-width: 250px;
     font-size: 10px;
 }
-#menuhor ul li.niv1 { 
-    width: 200px;
-    padding: 0.51vw;
-}
+
 #menuhor ul li { 
     text-align: center;
 }
@@ -301,7 +308,7 @@
     color: #fff;
     background-color: transparent;
     border-top: none;
-    padding: 8px 8px 9px;
+    padding: 0px 0px 0px;
     position: relative;
 }
 #menuhor ul li:hover {
@@ -325,13 +332,13 @@
 #menuhor ul li:hover > ul {
     display: block;
     position: absolute;
-    left: 135px;
-    top:-0.90vw;
+    left: 120px;
+    top:-0.1vw
 }
 #menuhor ul li:hover > ul.niv2 {
     display: block;
     position: absolute;
-    left: 198px;
+    left: 15vw;
     top:-0.90vw;
 }
 #menuhor ul li ul li a {
@@ -346,7 +353,7 @@
     color: #000;
 }
 #menuhor ul li a.niv1ie {
-    width: 144px;
+    width: 10.77vw;
     padding: 8px;
 }
 #menuhor ul li a.subniv {
@@ -355,7 +362,7 @@
 #menuhor ul li a:hover ul.niv2, #menuhor ul.niv2 li a:hover ul.niv3, #menuhor ul.niv3 li a:hover ul.niv4 {
     display: block;
     position: absolute;
-    left: 160px;
+    left: 100px;
     top:-1px;
 }
 #menuhor ul.niv4{
@@ -379,31 +386,31 @@ footer{
 
 #menuhor ul.niv2.DocExt a{
     font-size: 10px;
-    width: 250px;
+    width: 18.3vw;
 }
 #menuhor ul.niv2.DocExt{
-    overflow: scroll; 
+    overflow: scroll;
     max-height: 200px; 
     overflow-x:hidden; 
-    top: -165px!important;
+    top: -100px!important;
 }
 #menuhor ul.niv2.ForReg a{
     font-size: 12px;
 }
 #menuhor ul.niv2.ForReg{
-    top: -130px!important;
+    top: -20px!important;
 }
-#menuhor ul.niv2.Inst a{
+#menuhor ul.niv2.Inst a {
     font-size: 12px;
 }
 #menuhor ul.niv2.Inst{
-    top: -130px!important;
+    top: -20px!important;
 }
 #menuhor ul.niv2.Proc a{
     font-size: 12px;
 }
 #menuhor ul.niv2.Proc{
-    top: -130px!important;
+    top: -20px!important;
 }
  #menuhor ul li:hover a.niv1.DocExt{
      color: #7F7F7F;
@@ -468,4 +475,7 @@ footer{
   .popup{
     width: 70%;
   }
+}
+.niv2{
+    z-index: 2;
 }

@@ -13,7 +13,7 @@ namespace SGC.Iteracciones
     {
         public static bool InsertComunicado(T_Comunicados t_comunicado)
         {
-            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;"))
+            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False;"))
             {
                 mySqlConnection.Open();
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -35,7 +35,7 @@ namespace SGC.Iteracciones
         }
         public static bool UpdateArchivo(T_Documentos t_documentos)
         {
-            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;"))
+            using (SqlConnection mySqlConnection = new SqlConnection("Persist Security Info = False;"))
             {
                 mySqlConnection.Open();
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -53,7 +53,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerProcedimientos()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -75,7 +75,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerDescPuesto()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -97,7 +97,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerRegyPoli()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -119,7 +119,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerBoletin()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -141,7 +141,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerObjTac()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -163,7 +163,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerStatusHa()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -185,7 +185,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerDocExtr()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -207,7 +207,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerManuales()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -229,7 +229,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerOrganigrama()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -251,7 +251,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerPoliObj()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -273,7 +273,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerProc()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -295,7 +295,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerInst()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -317,7 +317,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerForReg()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {
@@ -339,7 +339,7 @@ namespace SGC.Iteracciones
         }
         public static DataTable ObtenerManual()
         {
-            string m_cadena = "Persist Security Info = False; initial catalog=AdminPagCalidad;user id=sa;data source=DB-SERVER\\INARISQL;password=Sql1N4r1;";
+            string m_cadena = "Persist Security Info = False;";
             DataTable m_Procesos = new DataTable();
             try
             {

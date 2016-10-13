@@ -10,7 +10,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.T_Area.Nombre)
+            <label>Aréa</label>
         </dt>
 
         <dd>
@@ -18,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.T_Departamento.Nombre)
+            <label>Departamento</label>
         </dt>
 
         <dd>
@@ -26,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.T_Status.Nombre)
+            <label>Estatus</label>
         </dt>
 
         <dd>
@@ -34,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.T_Tipo_Documento.Nombre)
+            <label>Tipo de Documento</label>
         </dt>
 
         <dd>
@@ -42,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
+            <label>Nombre del documento</label>
         </dt>
 
         <dd>
@@ -50,7 +50,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Codificacion)
+            <label>Codigo</label>
         </dt>
 
         <dd>
@@ -58,15 +58,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CodAdicional)
+            <label>Código Adicional</label>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CodAdicional)
+            @Html.DisplayFor(model => model.PriCodAdi)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.NoRevision)
+            <label>Código númerico</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegCodAdi)
+        </dd>
+        <dt>
+            <label>No. de Revisión</label>
         </dt>
 
         <dd>
@@ -74,7 +80,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            <label>Descripción</label>
         </dt>
 
         <dd>
@@ -82,7 +88,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Alta)
+            <label>Fecha de Alta</label>
         </dt>
 
         <dd>
@@ -90,7 +96,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LinkWeb)
+            <label>Dirección Url</label>
         </dt>
 
         <dd>
@@ -98,7 +104,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ruta_Archivo)
+            <label>Ruta física</label>
         </dt>
 
         <dd>
@@ -106,7 +112,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CodificacionCalc)
+            <label>Codificación completa</label>
         </dt>
 
         <dd>

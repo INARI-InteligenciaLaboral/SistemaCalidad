@@ -49,14 +49,14 @@ namespace SGC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
+        public ActionResult Create(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,PriCodAdi,SegCodAdi,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
         {
             if (file != null)
             {
                 string archivo = (file.FileName).ToLower();
 
                 file.SaveAs(Server.MapPath("~/Archivos/" + archivo));
-                t_Documentos.Ruta_Archivo = "~/Archivos/" + archivo;
+                t_Documentos.Ruta_Archivo = archivo;
                 t_Documentos.Fecha_Alta = DateTime.Now;
                 if (t_Documentos.Codificacion != null && t_Documentos.Nombre != null && t_Documentos.NoRevision >= 0)
                 {
@@ -105,14 +105,11 @@ namespace SGC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
+        public ActionResult Edit([Bind(Include = "ID_Doc,Nombre,Codificacion,PriCodAdi,SegCodAdi,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(t_Documentos).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            db.Entry(t_Documentos).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
             ViewBag.ID_Area = new SelectList(db.T_Area, "ID_Area", "Nombre", t_Documentos.ID_Area);
             ViewBag.ID_Depart = new SelectList(db.T_Departamento, "ID_Depart", "Nombre", t_Documentos.ID_Depart);
             ViewBag.ID_Status = new SelectList(db.T_Status, "ID_Status", "Nombre", t_Documentos.ID_Status);
@@ -155,14 +152,14 @@ namespace SGC.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        public ActionResult Subir(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,CodAdicional,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
+        public ActionResult Subir(HttpPostedFileBase file, [Bind(Include = "ID_Doc,Nombre,Codificacion,PriCodAdi,SegCodAdi,NoRevision,ID_Status,ID_TipoDoc,ID_Area,ID_Depart,Descripcion,Fecha_Alta,LinkWeb,Ruta_Archivo,CodificacionCalc")] T_Documentos t_Documentos)
         {
             if (file != null)
             {
                 string archivo = (file.FileName).ToLower();
 
                 file.SaveAs(Server.MapPath("~/Archivos/" + archivo));
-                t_Documentos.Ruta_Archivo = "~/Archivos/" + archivo;
+                t_Documentos.Ruta_Archivo = archivo;
                 t_Documentos.Fecha_Alta = DateTime.Now;
                 Iteracciones.IteraccionBD.UpdateArchivo(t_Documentos);
                 return RedirectToAction("Index");

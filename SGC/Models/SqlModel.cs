@@ -29,7 +29,12 @@ namespace SGC.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<T_Documentos>()
-                .Property(e => e.CodAdicional)
+                .Property(e => e.PriCodAdi)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<T_Documentos>()
+                .Property(e => e.SegCodAdi)
                 .IsFixedLength()
                 .IsUnicode(false);
 
