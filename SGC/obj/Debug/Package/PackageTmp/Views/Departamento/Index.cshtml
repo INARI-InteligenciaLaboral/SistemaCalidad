@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SGC.Models.T_Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Departamentos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Nombre Departamento</label>
+        </th>
+        <th>
+            <label>Clave Departamento</label>
+        </th>
+        <th>
+            <label>Descripción Departamento</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clave_Depart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Depart }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Depart }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Depart })
+        </td>
+    </tr>
+}
+
+</table>

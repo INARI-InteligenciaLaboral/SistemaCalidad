@@ -1,0 +1,127 @@
+﻿@model SGC.Models.T_Documentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles de documento</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Aréa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Area.Nombre)
+        </dd>
+
+        <dt>
+            <label>Departamento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Departamento.Nombre)
+        </dd>
+
+        <dt>
+            <label>Estatus</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Status.Nombre)
+        </dd>
+
+        <dt>
+            <label>Tipo de Documento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_Tipo_Documento.Nombre)
+        </dd>
+
+        <dt>
+            <label>Nombre del documento</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            <label>Codigo</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codificacion)
+        </dd>
+
+        <dt>
+            <label>Código Adicional</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriCodAdi)
+        </dd>
+        <dt>
+            <label>Código númerico</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegCodAdi)
+        </dd>
+        <dt>
+            <label>No. de Revisión</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRevision)
+        </dd>
+
+        <dt>
+            <label>Descripción</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            <label>Fecha de Alta</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Alta)
+        </dd>
+
+        <dt>
+            <label>Dirección Url</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkWeb)
+        </dd>
+
+        <dt>
+            <label>Ruta física</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ruta_Archivo)
+        </dd>
+
+        <dt>
+            <label>Codificación completa</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodificacionCalc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Doc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
